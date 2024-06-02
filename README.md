@@ -13,7 +13,7 @@ https://drive.google.com/drive/folders/1-148UkGPg3zj1VS5GeqgM4ff_HSAslrM*
 
   Resumen De Archivos:
     
-⚡📝**Arboles:**
+⚡📝**Arboles:**  
 Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un archivo desordenado, como si estuviese ordenado mediante indicies. Ya que tener un archivo grande ordenado, es bastante costoso.
   - Arboles B
   - Arboles B*: Lo vemos de forma teorica.
