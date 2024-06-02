@@ -9,17 +9,22 @@
   - Baja Logica
   - Baja Fisica
   - Lista Invertida
-  
+
+  Resumen De Archivos:
+    
 **Arboles:**
   - Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un archivo desordenado, ordenado mediante indicies. Ya que tener un grande archivo ordenado es costoso.
   - Arboles B
   - Arboles B*: Lo vemos de forma teorica.
   - Arboles B+
   
+  Resumen de Arboles:
+  
 **Hashing:**
   - Hashing Estatico: Lo vemos de forma teorica.
   - Hashing Dinamico / Hashing Extensible
 
+  
 
 # Videos que me ayudaron a entender algunos temas: 
 
