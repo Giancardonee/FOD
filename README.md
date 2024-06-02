@@ -23,7 +23,7 @@
 
 # Videos que me ayudaron a entender algunos temas: 
 
-**Solo prestar atencion a las resoluciones de Overflow y Underflow. El minimo lo calcula de forma distinta a la catedra.**  
+**Solo prestar atencion a las resoluciones de Overflow y Underflow. El minimo lo calcula de forma distinta a como lo hacemos en la catedra.**  
 Video de Arbol B, Casos de insercion: https://www.youtube.com/watch?v=kAzYAy6AJbg  
 Video de Arbol B, Casos de eliminacion: https://www.youtube.com/watch?v=e8yDQevWH9s&t=2s  
 Video de Arbol B+, Casos de insercion y eliminacion: https://www.youtube.com/watch?v=eXr9dQ_ng60&t=1012s
