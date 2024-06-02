@@ -1,4 +1,4 @@
-# Fundamentos de Organizacion de Datos
+# 🌟 Fundamentos de Organizacion de Datos 🌟
 **Drive con videos de explicaciones practicas de la catedra: https://drive.google.com/drive/folders/1-148UkGPg3zj1VS5GeqgM4ff_HSAslrM**  
 
 **En esta materia vemos:**  
