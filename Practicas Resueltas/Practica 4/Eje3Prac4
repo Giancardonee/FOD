@@ -1,0 +1,30 @@
+Ejercicio 3
+Inciso a )
+	En un arbol b+, en las hojas, vamos a tener realmente nuestras claves, esto permite
+	tener un acceso secuencial rapido. 
+	Mientras que, los nodos internos, actuan como separadores, para dirigir las busquedas 
+	 por lo tanto, no nos garantiza que una clave que esta en los nodos internos, realmente esté en el arbol. 
+	En las hojas tendremos el dato, mientras que en los nodos internos, se les pasa una copia de ese dato. 
+	
+Incisio b) 
+	La caracteristica distinta que presentan los nodos hojas en un arbool b+ 
+	es que,  en los nodos hoja, se utiliza una estructura de lista enlazada. Esto permite un acceso 
+	secuencial rapido a los datos reales del arbol. De esta maera, en las hojas, se encuentran
+	los datos reales del arbol. 
+inciso c) 
+	***** Completar
+
+Inciso d) 
+		La búsqueda de un alumno con un DNI específico, implica acceder al primer puntero de la lista (o al NRR) asociado con la clave en el nodo hoja, 
+		en lugar de acceder directamente al dato del alumno. Esta diferencia en la estructura de los nodos hoja es una de las principales distinciones 
+		entre los árboles B y B+.
+inciso e) 
+Busqueda: 
+	- Empezamos desde el nodo raiz
+	- Descendemos a traves de los nodos internos, hasta llegar a un nodo hoja, que tenga
+	la clave que estamos buscando, o una muy cercana, y empezamos a hacer la busqueda secuencial 
+	hasta que : Se termine la lista, o hasta que encontremos una clave que sea mayor al rango que estamos buscando. 
+	- 
+
+La estructura de los árboles B+ está optimizada para búsquedas de rangos, ya que los nodos hoja están organizados de manera secuencial. 
+Esto facilita la búsqueda de datos dentro de un rango específico como el que estamos buscando.

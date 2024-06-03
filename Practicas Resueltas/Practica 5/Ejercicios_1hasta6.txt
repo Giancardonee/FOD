@@ -1,0 +1,48 @@
+1) Defina el concepto de hashing (o dispersión). ¿Cómo se relaciona este concepto con archivos?
+Definiciones: 
+ - Es una tecnica para generar una direccion base unica para una clave dada. La dispersion se usa cuando se requiere acceso rapido mediante una clave.
+ - Tecnica de almacenamiento y recuperacion que usa una funcion para mapear registros en direcciones de almacenamiento de memoria secundaria. 
+Relacion con archivos: 
+ Para almacenar grandes volumenes de datos en discos duros se puede utilizar la tecnica de hashing extensible. 
+ Esta tecnica permite que las tablas hash crezcan dinamicamente y manejen colisiones de manera eficiente en almacenamiento secundario.
+ Ademas, una ventaja que nos da usar hashing, es que se tiene en promedio un acceso a disco para recuperar un registro.
+ Mientras que si lo comparamos con arboles+ en promedio se necesitan entre 3 y 4 accesos a disco para recuperar un registro. 
+
+2) Explique el concepto de función de dispersión. Enumere al menos tres funciones de dispersión y explique brevemente cómo funciona cada una.
+Una funcion de hash o dispersion, transforma un valor (que representa una llave primaria de un registro), en otro valor dentro de un determinado rango, que se utiliza como direccion fisica de acceso para insertar un registro en un archivo de datos.
+
+3)  Explique los conceptos de sinónimo, colisión y desborde (overflow). ¿Qué condición es necesaria en el archivo directo para que pueda ocurrir una colisión y no un desborde?
+ 
+Sinonimo: Se refiere cuando dos o más claves diferentes producen el mismo valor hash o índice en una tabla hash. Esto significa que, aunque las claves sean distintas, la función hash las mapea en el mismo lugar en la tabla. 
+ Los sinónimos son una causa común de colisiones. 
+
+ Colision: Ocurre cuando se asigna una clave hasheada en un indice de la tabla que ya esta ocupado. 
+ 
+ Desborde / Overflow: Para que se produzca overflow o desborde, tiene que haber una colision, pero tiene que cumplirse otro criterio: Si la cubeta donde se produjo la colision, se encuentra con la cantidad maxima de elementos, se produce un desborde. Debemos solucionar este desborde, redispersando las claves de la cubeta saturada.
+
+
+IMPORTANTE: SIEMPRE QUE HAY COLISION HAY OVERFLOW ? NO. 
+PUEDE HABER COLISION SIN GENERARSE OVERFLOW. 
+JUSTIFICACION: 
+   SI UNA CUBETA TIENE CAPACIDAD PARA 3 ELEMENTOS, Y TIENE 2 ELEMENTOS ACTUALES, SI SE AGREGA UN ELEMENTO, SE PRODUCE COLISION, PERO NO HAY OVERFLOW.
+   DISTINTO SERIA SI UNA CUBETA TIENE LOS ELEMENTOS MAXIMOS, Y SE QUIERE AGREGAR UN NUEVO ELEMENTO, SE PRODUCE UNA COLISION EN ESA CUBETA, EN ESE CASO SI SE PRODUCE OVERFLOW.
+
+4) ¿Qué alternativas existen para reducir el número de colisiones (y por ende de desbordes) en un archivo organizado mediante la técnica de hashing?
+ Las alternativas son: 
+  - Elegir una funcion de hash buena: Aunque, es imposible tener una funcion de hash relativamente perfecta, que no provoque ninguna colision. Se debe usar una funcion de hash la cual reduzca lo maximo posible los sinonimos, por ende se evitarian colisiones y desbordes. 
+  Almacenamiento: 
+  - Mayor espacio por cubeta (menos colisiones) : Esto resulta ineficiente en cuanto a almacenamiento, ya que tendriamos espacio de sobra, por lo tanto seria espacio desperdiciado.
+  - Menor espacio por cubeta (mas colisiones) : Al tener cada cubeta una cantidad menor de elementos, tendriamos mas colisiones, pero no estamos desperdiciando almacenamiento. 
+  Como conclusion: Es un trade-off, ganamos por un lado, pero perdemos por otro lado. 
+  Si no queremos desperdiciar espacio, podriamos tener menor espacio por cubetas, pero tendriamos mas colisiones en promedio. 
+  Si no nos interesa el espacio,  podriamos tener mayor espacio por cubetas, esto reduciria el promedio de colisiones, pero tendremos demasiado espacio obsoleto.
+   
+5) La densisad de empaquetamiento se refiere a la proporcion de registros almacenados con respecto a la capacidad total de registros. 
+DE = registros almacenados / capacidad total de registros. 
+A menor Densidad de empaquetamiento, menos probabilidad de colisiones, pero habria mas espacio sin utilizar.
+Cuanto mayor sea la densidad de empaquetamiento, significaria que hay menos espacio libre, por lo tanto, cuanto menos espacio tengamos libre, mayor seria el promedio de colisiones.
+
+Conclusion: Una menor densidad de empaquetamiento en una tabla hash tiene el trade-off de mejorar el rendimiento y reducir las colisiones a costa de un mayor consumo de memoria y espacio no utilizado. El diseño de una tabla hash debe encontrar un balance adecuado entre estos factores según las necesidades específicas del sistema y las limitaciones de recursos disponibles.
+
+6) Explique brevemente cómo funcionan las siguientes técnicas de resolución de desbordes que se pueden utilizar en hashing estático: 
+   Saturación Progresiva: permite almacenar un registro en la dirección próxima disponible de la colisión. Es decir, la más cercana

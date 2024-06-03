@@ -1,0 +1,98 @@
+Ejercicio 1
+Inciso a) 
+ Defina en Pascal las estructuras de datos necesarias para organizar el archivo de
+	alumnos como un árbol B de orden M.
+
+	Const 
+		M = ....... ;   =>>orden del arbol
+	type
+		alumno = record
+			Nombre : string[20]; 
+			Apellido : string[20]; 
+			dni : String[8]; 
+			legajo : integer;
+			anhoIngreso : integer; 
+		end; 
+		
+		nodoB = record
+			elementos : array [1..M-1] of Alumno; 
+			hijos : array[1..M] of ^nodoB; 
+			elementosActuales : integer;
+		end; 
+		
+		arbol : file of nodoB; 
+		
+		{programa principal}
+		var
+			arbolB : arbol; 
+
+inciso b) 
+	registro de una persona, ocupa 64 bytes
+	cada nodo del arbol b tiene un tamaño de 512 bytes
+	numeros enteros ocupan 4 bytes
+
+	N = tamaño del nodo en bytes
+	A= tamaño de un registro (en bytes)
+	B= tamaño de cada enlace a un hijo
+	C= tamaño del campo referido a la cantidad de claves
+	
+	N=  512
+	A = 64
+	B= 4 
+	C= 4
+	
+	Reemplazando en la formula: 
+	N = (M - 1) * A + M * B + C
+	512 = (M-1) * 64 + M * 4 + 4
+	512 = 64M - 64 + 4M + 4
+	512 = 68M - 60
+	572 = 68M
+	M ≈ 8.41
+	
+	¿cuántos registros de persona entrarían en un nodo del árbol B?
+	
+	Si el orden del arbol es 8, la cantidad de elementos que puede entrar en un arbol de orden 8 son: 
+	M-1 ==>  8-1= , por lo tanto puede tener 7 elementos puede tener como maximo. 
+	
+	 ¿Cuál sería el orden del árbol B en este caso (el valor de M)?
+	 Usamos la formula que nos dan, y nos da que M = 8.
+	 
+inciso c)
+¿Qué impacto tiene sobre el valor de M organizar el archivo con toda la 
+información de los alumnos como un árbol B?
+	
+	El valor de M en un arbol B, determina la cantidad maxima de hijos que puede tener un nodo. 
+	Un valor mas alto de M significa que cada nodo puede tener mas registros, lo que puede
+	mejorar la eficiencia en terminos de accesos a disco.
+	
+	Por ejemplo, con un arbol de orden 512, con un acceso a disco, podemos traernos 511 claves
+	(suponiendo que el arbol esta completo)
+	
+	Organizar el archivo de alumnos como un arbol B, mejoraria la eficiencia en terminos de busqueda
+	y ordenamiento de datos. Pero tambien se reducen los accesos a disco. Esto es una ventaja porque
+	el acceso a disco es costoso en terminos de tiempo. 
+	
+inciso d) 
+	Se podria seleccinar el dato dni para ordenar los alumnos en el arbol b, pero tambien
+	esta la opcion de elegir el legajo, depende del proposito por el que se busque.
+	Capaz para una institucion es mas facil buscar por legajo que por dni.
+	
+inciso e) 
+	El proceso de busqueda de un alumno por DNI o LEGAJO, se hace igual que en un arbol binario
+	Primero se lee la raiz. 
+		Si el dato esta en la raiz: Se corta la busqueda. 
+		Si el dato no esta en la raiz, y es menor a la raiz, se busca en el hijo izquierdo (si tiene)
+		Si el dato no esta en la raiz, y es mayor a la raiz, se busca en el hijo derecho (si tiene)
+		Esto es recursivo, va de izquierda a derecha, o donde sea necesario. 
+		
+		En el mejor caso, para encontrar a un alumno por su clave se necesita 1 lectura
+			El mejor caso, seria que el alumno este en la raiz.
+		En el peor caso, para encontrar a un alumno por su clave en el peor de los casos, 
+		el orden sería O(log n), donde n es el número total de claves en el árbol.
+			
+inciso f) 
+
+Si se quiere buscar un elemento en un árbol B por un criterio que no está ordenado, en el peor de los casos sería O(n), 
+donde n es el número total de claves en el árbol. Esto se debe a que se tendroa que recorrer todos los nodos del árbol 
+para buscar el elemento. 
+

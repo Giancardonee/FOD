@@ -1,0 +1,22 @@
+-----------------------------------------------------
+===>  Codigo de novela: 100 Nombre: Novelitas1
+==> Duracion:  2.50 Genero: NuevoGener
+=> Precio: $5000.00 Director: DirectorNovela1
+-----------------------------------------------------
+===>  Codigo de novela: 105 Nombre: Novelitas2
+==> Duracion:  1.00 Genero: Drama
+=> Precio: $7000.00 Director: LeoMessi
+-----------------------------------------------------
+Espacio Reasignable. Codigo de novela: 0 Indice en el archivo: 3
+-----------------------------------------------------
+===>  Codigo de novela: 115 Nombre: Novelitas4
+==> Duracion:  8.00 Genero: Motivacion
+=> Precio: $12000.00 Director: LladosFitness
+-----------------------------------------------------
+===>  Codigo de novela: 120 Nombre: Novelitas5
+==> Duracion:  4.00 Genero: Drama
+=> Precio: $6500.00 Director: EmilianoMartine
+-----------------------------------------------------
+===>  Codigo de novela: 125 Nombre: Novelitas6
+==> Duracion:  2.00 Genero: Romanticona
+=> Precio: $4000.00 Director: DarioBarassi
