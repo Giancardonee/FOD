@@ -10,7 +10,7 @@
   - Baja Fisica
   - Lista Invertida
 
-  Resumen De Archivos:
+  [Resumen De Archivos:](https://github.com/Giancardonee/FOD/tree/main/Resumen%20de%20Temas/Repaso%20Archivos)
     
 ⚡📝**Arboles:**  
 Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un archivo desordenado, como si estuviese ordenado mediante indicies. Ya que tener un archivo grande ordenado, es bastante costoso.
