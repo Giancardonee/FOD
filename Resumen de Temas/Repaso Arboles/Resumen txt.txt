@@ -1,0 +1,18 @@
+Apuntes para Arbol b: 
+	- Cuando se elimina una clave que esta en un nodo no terminal (nodo no hoja). Se reemplaza por la menor clave del subarbol derecho.
+	
+	- Cuando se fusiona, se agrupa sobre el nodo izquierdo, siempre. Baja la clave padre, y se agrupa con el hermano adyacente.
+	- Cuando se redistribuye, baja la clave del padre hacia el nodo con underflow, y sube la clave del nodo adyacente que realizo el prestamo.
+
+
+Apuntes para Arbol B+: 
+	 Arbol B+ se comporta de la misma forma que Arbol B, cuando NO es hoja
+	
+
+	- Si hay overflow en nodo hoja, se promociona la clave igual que Arbol B, pero ademas, se manda hacia el nodo nuevo, esa clave que se promociona.
+	- Si hay overflow en nodo NO hoja, es igual que Arbol B, se promociona la clave y lo demas se manda hacia el nuevo nodo. 
+
+	Operaciones que cambian en nodo hoja: 
+		- Si se elimina una clave, y no hay underflow, el separador queda igual 
+		- En fusion: Se elimina el separador (clave padre). 
+		- En redistribucion: Se redistribuye con su hermano adyacente, pero el separador no baja, si no que se actualiza con la clave menor del subarbol derecho

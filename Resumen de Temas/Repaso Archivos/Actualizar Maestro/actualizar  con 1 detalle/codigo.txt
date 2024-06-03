@@ -1,0 +1,33 @@
+ procedure actualizarMaestro (var archM : archivoProductos; var archD : archivoVentas); 
+ var
+	rVenta : venta; 
+	codActual,unidadesVendidas : integer; 
+	rProducto : producto;
+ begin
+	reset(archM); 
+	reset(archD);
+	read(archM,rProducto); 
+	leer(archD,rVenta); 
+	while (rVenta.codigo <> valorAlto) do {mientras no se termine el detalle} 
+		begin
+			codActual:= rVenta.codigo;
+			unidadesVendidas:=0; 
+			{procesamos todas las ventas de ese codigo de producto. EN EL DETALLE}
+			while (codActual = rVenta.codigo) do 
+				begin
+					unidadesVendidas:= unidadesVendidas + rVenta.cantVendida; 
+				    leer(archD,rVenta); 
+				end;
+			{buscamos en el maestro, el codigo de producto que se estuvo procesando}
+			while (rProducto.codigo <> codActual) do 
+				begin
+					read(archM,rProducto); 
+				end; 
+			{cuando salga es porque se encontro el producto en el maestro}
+			rProducto.stockActual:= rProducto.stockActual - unidadesVendidas; 
+			seek(archM, filePos(archM)-1); 
+			write(archM,rProducto); 
+		end;
+	close(archM);
+	close(archD);
+ end;
