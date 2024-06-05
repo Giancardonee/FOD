@@ -36,7 +36,7 @@ Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un
 ✅[Video de Arbol B+, Casos de insercion y eliminacion:](https://www.youtube.com/watch?v=eXr9dQ_ng60&t=1012s)  
    
   
-# Para aprobar esta materia, hay que saber la diferencia entre puede y debe. 
+# Para aprobar, hay que entender la diferencia entre puede y debe. 
 ![image](https://github.com/Giancardonee/FOD/assets/114377978/4c77d2e2-ee60-4ad1-9c38-6b0469a38780)  
 
 
