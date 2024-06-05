@@ -27,7 +27,8 @@ Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un
   - Hashing Dinamico / Hashing Extensible
 
   
-
+# Parciales 2024:  
+[Parcial Primera Fecha 2024](https://github.com/Giancardonee/FOD/tree/main/Parciales/Primera%20Fecha%20FOD%202024)
 # Videos que me ayudaron a entender algunos temas: 
 
 **Solo prestar atencion a las resoluciones de Overflow y Underflow. El minimo lo calcula de forma distinta a como lo hacemos en la catedra.**  
