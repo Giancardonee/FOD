@@ -17,6 +17,7 @@ type
 
     archivoPrestamos = file of prestamo;
 
+
 // function extraerAnho (......): .....; Se dispone
 
 
@@ -79,4 +80,4 @@ type
         writeln(archivoTxt,'Monto total vendido por la empresa: ',tMontoEmpresa); 
         close(archivo);
         close(archivoTxt);
-    end;
+    end;// fin del procedure :) 
