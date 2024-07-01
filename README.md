@@ -27,7 +27,7 @@ Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un
   - Hashing Dinamico / Hashing Extensible
 
   
-# Parciales 2024:  
+# Parciales Practicos 2024:  
 [Parcial Primera Fecha 2024](https://github.com/Giancardonee/FOD/tree/main/Parciales/Primera%20Fecha%20FOD%202024)  
 [Parcial Segunda Fecha 2024 (solo enunciados)](https://github.com/Giancardonee/FOD/blob/main/Parciales/Segunda%20Fecha%20FOD%202024/Parcial.jpeg)
 # Videos que me ayudaron a entender algunos temas: 
@@ -36,6 +36,10 @@ Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un
 ✅[Video de Arbol B, Casos de Insercion: ](https://www.youtube.com/watch?v=kAzYAy6AJbg)  
 ✅[Video de Arbol B, Casos de eliminacion:](https://www.youtube.com/watch?v=e8yDQevWH9s&t=2s)  
 ✅[Video de Arbol B+, Casos de insercion y eliminacion:](https://www.youtube.com/watch?v=eXr9dQ_ng60&t=1012s)  
+
+# Repaso para el teorico: 
+[Primer Repaso Teorico 2024 ](https://github.com/Giancardonee/FOD/tree/main/Final%20-%20Teorico%20FOD/Primer%20repaso)  
+[Segundo Repaso Teorico 2024 ](https://github.com/Giancardonee/FOD/tree/main/Final%20-%20Teorico%20FOD/Segundo%20repaso)
    
   
 # Importante: Para el teorico, entender la diferencia entre puede y debe. 
