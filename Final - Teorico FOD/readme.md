@@ -1,6 +1,8 @@
 # Resumenes y parciales para rendir Final / Teorico de FOD
 
-La mayoria de los resumenes los saque del grupo de final de FOD, el que hizo todo esto es un pedazo de nazi.  
+Los resumenes los saque del grupo de final de FOD, el que hizo todo esto es un pedazo de nazi.  
+
+# DEJO REPASOS DEL TEORICO DURANTE MI CURSADA (2024)
 
 # PRIMER REPASO PARA EL TEORICO: 
 ![Primer repaso Teorico parte 1](https://github.com/Giancardonee/FOD/assets/114377978/23cbd47d-5f70-4e8b-b811-f14ce45af794)  
