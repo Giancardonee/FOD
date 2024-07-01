@@ -12,7 +12,7 @@
   - Baja Fisica
   - Lista Invertida
 
-  [Resumen De Archivos:](https://github.com/Giancardonee/FOD/tree/main/Resumen%20de%20Temas/Repaso%20Archivos)
+  [Resumen Practico De Archivos:](https://github.com/Giancardonee/FOD/tree/main/Resumen%20de%20Temas/Repaso%20Archivos)
     
 ⚡📝**Arboles:**  
 Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un archivo desordenado, como si estuviese ordenado mediante indicies. Ya que tener un archivo grande ordenado, es bastante costoso.
@@ -20,7 +20,7 @@ Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un
   - Arboles B*: Lo vemos de forma teorica.
   - Arboles B+
 
-[Resumen de Árboles](https://github.com/Giancardonee/FOD/blob/main/Resumen%20de%20Temas/Repaso%20Arboles/readme.md)
+[Resumen Practico de Árboles](https://github.com/Giancardonee/FOD/blob/main/Resumen%20de%20Temas/Repaso%20Arboles/readme.md)
   
 ⚡📝**Hashing:**
   - Hashing Estatico: Lo vemos de forma teorica.
@@ -28,7 +28,8 @@ Vemos arboles como si fuesen indices en archivos. De esta manera, podemos ver un
 
   
 # Parciales 2024:  
-[Parcial Primera Fecha 2024](https://github.com/Giancardonee/FOD/tree/main/Parciales/Primera%20Fecha%20FOD%202024)
+[Parcial Primera Fecha 2024](https://github.com/Giancardonee/FOD/tree/main/Parciales/Primera%20Fecha%20FOD%202024)  
+[Parcial Segunda Fecha 2024 (solo enunciados)](https://github.com/Giancardonee/FOD/blob/main/Parciales/Segunda%20Fecha%20FOD%202024/Parcial.jpeg)
 # Videos que me ayudaron a entender algunos temas: 
 
 **Solo prestar atencion a las resoluciones de Overflow y Underflow. El minimo lo calcula de forma distinta a como lo hacemos en la catedra.**  
