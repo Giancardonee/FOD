@@ -1,6 +1,7 @@
 # Resumenes y parciales para rendir Final / Teorico de FOD
 
 Los resumenes los saque del grupo de final de FOD, el que hizo todo esto es un pedazo de nazi.  
+Pueden estar algunas respuestas incorrectas.
 
 # DEJO REPASOS DEL TEORICO DURANTE MI CURSADA (2024)
 
