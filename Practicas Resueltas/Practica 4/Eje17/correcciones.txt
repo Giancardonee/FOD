@@ -1,7 +1,0 @@
-El nodo7 del -23 deberia ser nodo2, porque en la fusion se fusiona siempre todo en el nodo de la izquierda
-
-y tambien en el -23, la pila queda distinta, lo unico que esta mal es que se apila el nodo2
-
-Correcciones: 
--23 nodo7 reemplazar por nodo2
--89 tambien, el nodo7 vendria a ser el nodo2
