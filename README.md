@@ -1,4 +1,3 @@
-# TENGO QUE ARREGLAR ALGUNOS EJEMPLOS DE REDISTRIBUCION EN ARBOLES. CUANDO PREPARE LA ULTIMA FECHA LO ARREGLO ACA  ( no tuve en cuenta que se podia redistribuir mas de una clave )
 
 # 🌟 Fundamentos de Organizacion de Datos 🌟
 
