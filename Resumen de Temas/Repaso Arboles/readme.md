@@ -4,7 +4,8 @@
 ![image](https://github.com/Giancardonee/FOD/assets/114377978/6503f547-1567-4405-88a9-be5aebe9329c)  
 
 Definir Arbol B: 
-![image](https://github.com/user-attachments/assets/16a1466b-89f4-4e23-8b04-dccabc845323)
+![image](https://github.com/user-attachments/assets/6c2f2989-cf6e-418b-bced-1fd2054cc3a1)
+
 
 
 
