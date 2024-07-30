@@ -1,0 +1,293 @@
+Teoria de Arboles Practica: 
+1. Considere que desea almacenar en un archivo la información correspondiente a los
+alumnos de la Facultad de Informática de la UNLP. De los mismos deberá guardarse
+nombre y apellido, DNI, legajo y año de ingreso. Suponga que dicho archivo se organiza
+como un árbol B de orden M.
+
+a) Defina en Pascal las estructuras de datos necesarias para organizar el archivo de
+   alumnos como un árbol B de orden M.
+   //1a
+	program untitled;
+	const orden  = M; 	
+	type 
+	 DatoEstudiante = record
+		legajo:longInt;
+		nombre:string; 
+		apellido:string; 
+		ingreso: integer; 
+	 end; 
+	 Nodo =  record
+		cantidadDatos : integer; 
+		Alumnos  : array[1.. m-1] of DatoEstudiante; 
+		Hijos : array[1.. m] of longInteger; 
+	 end; 
+	ArbolB = file of Nodo; 
+	var 
+		arbol : ArbolB; 
+//Arbol B de datos//
+b) Supongamos que la estructura de datos que representa una persona (registro de persona) ocupa 64 bytes,
+ que cada nodo del arbol B tiene un tamaño de 512 Bytes y que los numeros enteros ocupan 4 bytes ¿cuantos registros de  personas entrarian en un nodo del arbol B?
+¿Cuales seria el orden de los arboles B en estre caso (el valor de M)? Para resolver este inciso se puede utilizar  la formula 
+ N = (M-1)*A + M * B + C
+ donde N es el tamaño del nodo en Bytes, A es el tamaño de un registro en Bytes, B es el tamaño del enlace a un hijo 
+ y C es el tamaño que pcupa el campo refetido a la cantidad de claves. El objetivo es reemplazar estas variables 
+ con los valores dados y obtener el valor de M (este debe resultar entero).
+ -Tenemos los siguientes Datos: 
+  A = 64
+  M = ?
+  B = 4
+  C = 4 * M
+  N = 512
+  reemplazamnos y resolvemos
+  512 = (M-1) * 64 + M*4 + 4*M
+  512 = (M-1)64 + 8M
+  512 = 64M - 64 + 8M
+  512 + 64 = 72M
+  576/72 = M
+  8 = M
+c) ¿Qué impacto tiene sobre el valor de M organizar el archivo con toda la
+    información de los alumnos como un árbol B?
+   Tiene como impacto reducir la capacidad de Almacenameinto por Nodo 
+
+d)¿Qué dato seleccionaría como clave de identificación para organizar los
+   elementos (alumnos) en el árbol B? ¿Hay más de una opción?
+   Tomaria El dato Legajo presuponiendo que es unico por alumno, y no hay otra opcion que impida 
+   a bajo costo garantizar que cada alumno sea unico.
+
+e)Describa el proceso de búsqueda de un alumno por el criterio de ordenamiento
+ especificado en el punto previo. ¿Cuántas lecturas de nodos se necesitan para
+ encontrar un alumno por su clave de identificación en el peor y en el mejor de
+ los casos? ¿Cuáles serían estos casos?
+ - es simple el proceso consite en recorrer los nodos evaluando por las claves si   es mayor  o menor para saber si derivar la busqueda a uno de los hijos o la   proxima clave del nodo, 
+ en el mejor de los casos se podra encontrar el dato con un acceso, y en el pero  sera h accesos, siendo h la altura del  arbol
+
+f)¿Qué ocurre si desea buscar un alumno por un criterio diferente? ¿Cuántas
+   lecturas serían necesarias en el peor de los casos?
+  -si evaluamos otra cosas que no sea el criterio de ordenamiento, el peor caso        seria recorrer todo el arbol
+2) Una mejora respoecto a la solucion propuesta en el ejercicio 1 seria mantener por un lado l archivo que contiene la informacion de los 
+alumnos de la facultad de informatica (archivo de datos no ordenado) y por otro lado mantener un indice al archivo de datos que se  estructura como un arbol B que ofrece acceso  indizado por DNI de los alumnos.
+a. Defina en Pascal la estructuras necesarias correspondientes para el archivo de     alumnos y su indice
+b. Supónga que cada nodo del arbol B cuenta con un tamaño de 512 bytes.¿Cual seria el orden del arbol B (valor de M) 
+	que se emplea en el indice? Asuma que los numeros enteros ocupan 4 bytes. Para este inciso puede emplear una formula similar al punto 1b
+	pero considere ademas que en cada nodo se deben almacenar los m-1 enlaces de los registros correspondientes el archivo de datos.
+a)
+program ej2; 
+const M = m; 
+type 
+	DatoAlumno  =  record 
+		dni:integer;
+		nombre:string; 
+		apellido:string; 
+		ingreso: integer;  
+	end;
+	Tnodo  =  record 
+		cantClaves:integer; 
+		claves: array[1..M-1] of longint; 
+		enlaces: array [1..M-1] of integer; 
+		hijos: array [1.. M ]of integer; 
+		sig:integer;
+	end; 
+	ArbolIndices = file of Tnodo; 
+	Datos = file of DatoAlumno; 
+var 
+	Indice :  ArbolIdices; 
+	datos : Datos; 
+/Arbol B Indice/
+
+/*
+b) Cálculo del orden del árbol B (valor de M) que se emplea en el índice
+Datos:
+
+Tamaño del nodo (N): 512 bytes
+Tamaño de la clave (DNI, entero): 4 bytes
+Tamaño de cada enlace a un registro (E): 4 bytes
+Tamaño de cada enlace a un hijo (B): 4 bytes
+Tamaño del campo de cantidad de claves (C): 4 bytes
+Fórmula: 
+N=(M−1)⋅A+(M−1)⋅E+M⋅B+C        // N = (M-1)*A + M * B + C
+desarollando llegamos a 43
+
+3)
+a. Organización de Claves en un Árbol B+
+En un árbol B+:
+
+Nodos internos: Contienen solo las claves de enrutamiento. Estas claves sirven para guiar la búsqueda hacia las hojas correctas, pero no contienen los datos en sí.
+Nodos hojas: Contienen todas las claves de datos (las claves reales) y sus respectivos enlaces a los registros de datos en el archivo. Los nodos hoja también están enlazados entre sí, formando una lista enlazada para permitir un recorrido secuencial rápido.
+b. Característica Distintiva de los Nodos Hojas
+Los nodos hojas de un árbol B+ están enlazados entre sí, formando una lista enlazada. Esta característica distintiva permite un recorrido secuencial eficiente de las claves en orden ascendente, lo cual es muy útil para operaciones de rango y escaneo secuencial.
+
+c. Estructuras del Arbol B+
+program B+;
+const
+  M = 5;  { Define el orden del árbol B+ }
+
+type
+  DatoAlumno = record
+    dni: integer;
+    nombre: string[50];
+    apellido: string[50];
+    ingreso: integer;
+  end;
+
+  Tnodo = record
+    cantClaves: integer;
+    claves: array[1..M-1] of integer;  { Claves }
+    enlaces: array[1..M-1] of integer;  { Enlaces a los registros de datos }
+    hijos: array[0..M] of integer;  { Referencias a los nodos hijos (solo para nodos internos) }
+    sig: integer;  { Enlace al siguiente nodo hoja (solo para nodos hoja) }
+  end;
+
+  ArbolIndices = file of Tnodo;
+  Datos = file of DatoAlumno;
+
+var
+  Indice: ArbolIndices;
+  Datos: Datos;
+d. Proceso de Búsqueda de un Alumno por DNI en un Árbol B+
+Para buscar un alumno con un DNI específico en un árbol B+, se sigue el siguiente proceso:
+
+Inicio en la raíz: Comienza la búsqueda en el nodo raíz.
+Descenso por nodos internos: Se comparan las claves en los nodos internos para decidir cuál hijo seguir. Este proceso continúa hasta alcanzar un nodo hoja.
+Búsqueda en el nodo hoja: En el nodo hoja, se busca la clave específica (DNI). Si se encuentra, el proceso termina con éxito; si no, la búsqueda falla.
+Diferencia respecto a un árbol B:
+
+En un árbol B, la clave puede encontrarse en cualquier nodo (interno o hoja). En un árbol B+, la clave solo se encuentra en los nodos hoja, lo que simplifica el recorrido secuencial.
+e. Proceso de Búsqueda de Alumnos en un Rango de DNI en un Árbol B+
+Para buscar alumnos con DNIs en un rango específico (por ejemplo, entre 40,000,000 y 45,000,000):
+
+Inicio en la raíz: Comienza la búsqueda en el nodo raíz.
+Descenso por nodos internos: Se desciende a través de los nodos internos usando las claves de enrutamiento hasta alcanzar el primer nodo hoja que podría contener el inicio del rango.
+Recorrido secuencial: A partir del primer nodo hoja relevante, se recorre secuencialmente la lista enlazada de nodos hoja, recolectando todas las claves (y sus datos asociados) que caen dentro del rango especificado.
+Ventajas respecto a un árbol B:
+
+El recorrido secuencial en los nodos hoja enlazados del árbol B+ es más eficiente para rangos, ya que se evita la necesidad de volver a recorrer los nodos internos repetidamente.
+La estructura enlazada de los nodos hoja permite un acceso rápido y continuo a las claves dentro del rango, lo cual es más eficiente que buscar individualmente cada clave en un árbol B.
+
+4)
+a,b,c)
+///el ejercicio 
+procedure buscar(NRR: integer; var A:TipoArchivo, clave:integer,var NRR_encontrado: integer,var pos_encontrada,var resultado)
+ var clave_encontrada: boolean;
+     pos:integer; 
+     nodo:Tnodo; 
+	begin
+	if (NRR = -1){-1 Marca que el nodo no existe}
+			resultado := false; {clave no encontrada}
+	else
+			posicionarYLeerNodo(A, nodo, NRR);
+			claveEncontrada(A, nodo, clave, pos, clave_encontrada);
+	if (clave_encontrada) then begin
+			NRR_encontrado := NRR; { NRR actual }
+			pos_encontrada := pos; { posicion dentro del array }
+			resultado := true;
+	end
+	else
+		buscar(nodo.hijos[pos],A, clave, NRR_encontrado, pos_encontrada,resultado)
+ end;
+procedure posicionaryLeerNodo(var A:TipoArchivo,var nodo: Tnodo, NRR:integer)
+begin
+	seek(A,NRR); 
+	read(A,nodo);
+end; 
+procedure claveEncontrada(var A:TipoArchivo;  nodo: Tnodo; clave: integer; var pos:integer; var pos_encontrada:boolean)
+var 
+	i:integer;
+	corte: boolean; 
+begin
+    corte = false;
+	i:=1;
+	while (not pos_encontrada)&&(i <= nodo.CantClaves)&&(not corte) begin
+		if(nodo.claves[i] = clave)then begin
+			pos_encontrada := true; 
+			pos:= i; 
+		end
+		else 
+		if(nodo.claves[i]> clave) then begin
+			pos:=i; 
+			corte = true; 
+		end
+		else
+			i:=i+1;
+	end; 
+	pos:= nodo.cantClaves+1; {Si no encuentro la clave, pos se situa en la posicion de la ultima clave encontrada su siguiente}
+end;
+d)
+Para b+
+procedure claveEncontrada(const nodo: Tnodo; clave: integer; var pos: integer; var clave_encontrada: boolean);
+var
+  i: integer;
+  corte: boolean;
+begin
+  clave_encontrada := false;
+  corte := false;
+  i := 1;
+
+  while (i <= nodo.cantClaves) and (not clave_encontrada) and (not corte) do
+  begin
+    if nodo.claves[i] = clave then
+    begin
+      clave_encontrada := true;
+      pos := i;
+    end
+    else if nodo.claves[i] > clave then
+    begin
+      pos := i;
+      corte := true;
+    end
+    else
+      i := i + 1;
+  end;
+
+  if not clave_encontrada and not corte then
+    pos := nodo.cantClaves + 1;  { Si la clave no se encontró, pos se sitúa después de la última clave }
+end;
+procedure buscar(NRR: integer; var A: ArbolIndices; clave: integer; var NRR_encontrado: integer; var pos_encontrada: integer; var resultado: boolean);
+var
+  nodo: Tnodo;
+  pos: integer;
+  clave_encontrada: boolean;
+begin
+  if NRR = -1 then
+    resultado := false  { El nodo no existe (posición inválida) }
+  else
+  begin
+    posicionarYLeerNodo(A, nodo, NRR);  { Leer el nodo desde el archivo }
+    claveEncontrada(nodo, clave, pos, clave_encontrada);  { Buscar la clave en el nodo }
+
+    if nodo.hijos[0] = -1 then  { Nodo hoja }
+    begin
+      if clave_encontrada then
+      begin
+        NRR_encontrado := NRR;  { Actualizar NRR_encontrado con la posición del nodo actual }
+        pos_encontrada := pos;  { Actualizar pos_encontrada con la posición de la clave }
+        resultado := true;  { Indicar que la clave ha sido encontrada }
+      end
+      else
+        resultado := false;  { La clave no se encontró en las hojas }
+    end
+    else
+    begin
+      { Continuar la búsqueda recursivamente en el nodo hijo correspondiente }
+      buscar(nodo.hijos[pos], A, clave, NRR_encontrado, pos_encontrada, resultado);
+    end;
+  end;
+end;
+
+5)
+Overflow:
+Definición: El overflow ocurre cuando un nodo de un árbol B o B+ tiene más claves de las permitidas por su orden M.
+Específicamente, si un nodo recibe una nueva clave y el número total de claves excede 𝑀-1 se produce un overflow.
+Acción: Cuando ocurre un overflow, el nodo se divide en dos nodos, y una clave (en el caso de un árbol B+) o una clave y su enlace (en el caso de un árbol B) se promueve al nodo padre. Si el nodo padre también se llena, el proceso de división puede continuar hasta la raíz.
+
+Underflow:
+Definición: El underflow ocurre cuando un nodo tiene menos claves de las que necesita para mantener la propiedad del árbol B/B+. En general, si un nodo tiene menos de 
+[M/2]−1 claves, se produce un underflow.
+Acción: Cuando ocurre un underflow, se deben realizar acciones de redistribución o fusión para restaurar las propiedades del árbol.
+
+Redistribución:
+Definición: La redistribución es una técnica utilizada para corregir un underflow moviendo claves entre nodos hermanos (nodos que comparten el mismo padre).
+Cuándo se aplica: La redistribución se aplica cuando un nodo tiene un hermano que puede donar una clave sin caer en underflow. Se ajustan las claves y los enlaces entre los nodos hermanos y el nodo padre para mantener el equilibrio del árbol.
+
+Fusión o Concatenación:
+Definición: La fusión o concatenación es una técnica utilizada para corregir un underflow combinando dos nodos hermanos y ajustando el nodo padre en consecuencia.
+Cuándo se aplica: La fusión se aplica cuando un nodo y su hermano juntos tienen un número total de claves que no excede M−1 después de la combinación. Esta técnica se usa cuando la redistribución no es posible porque todos los nodos hermanos tienen el número mínimo de claves.

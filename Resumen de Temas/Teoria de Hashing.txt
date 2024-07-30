@@ -1,0 +1,39 @@
+Hashing teoria de la practica:
+
+1) hasing es una funcion que funciona como una caja para generar en base a una entrada un numero "Aleatorio" casi unico, y esto se relaciona con asignar a este resultado un espacio de memoria para la clave original 
+
+2)La funcion de dispercion asigna a un valor/clave primaria sea numeroca o no, en un numero virtualmente unico
+
+3) Colision :una colision es que la funcion de hash repita un numero.
+   Overflow: es cuando se produce una colision y ya se encuentra llena la capacidad de nodos
+   importante overflow siempre Implica Colision!!!
+
+4) Alternativas para reducir el numero de colisiones: 
+	-Hash Extensible 
+	-Hash Dinamico
+	-Hash virtual
+
+5) Densidad de empaquetamiento: Es la proporcion del espacio total de almacenamiento que esta efectivamente ocupado por     datos utiles en comparacion con el espacio disponible. Se infiere que: 
+	Densidad_Empaquetamiento = (CantidadNodosUtilizados * Capacidad de nodo)
+				   ----------------------------------------------- } se entiende es una division :v
+				   (CantidadNodosDisponibles * Capacidad de nodo)
+    
+    Consecuencias de menor densidad en un archivo directo:
+    1.Desperdicio de espacio de Almacenamiento
+    2.Costo Aumentado.
+    3.Reduccion en el rendimiento
+    4.Fragmentacion en disco
+    5.Mayor tiempo de Respaldo y Recuperacion 
+    6.Aumenta en promedio los fallos en caché -> recordar arqui :V
+
+6)breve explicacion de las tecnicas de resolucion de desbordes hashing estatico:
+ 
+ *Saturacion progresiva: maneja el overflow asignandolo al siguiente disponible y marcando que ocurrio overflow
+ 
+ *Saturacion prograsiva encadenada: Asigna al nodo con overflow a la primera direccion disponible y establece un puntero  entre el nodo donde se produjo overflow y el nodo que lo soluciono
+ 
+ *Saturacion progresiva encadenada con area de desborde separado:  resuelve el overflow asignandolo a celdas separadas
+  del resto con este proposito exclusivo asignado al nodo overflow con este.
+ 
+ *Dispersion doble: Resuelve el overflow asiendo un segundo hashing y sumandolo al primer Hashing para encontrar donde   situarlo  
+
